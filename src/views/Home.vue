@@ -1,6 +1,9 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
+    <icon icon="wx" size="2rem" />
+    <icon icon="cart" size="2rem" />
+    <icon icon="qq" size="2rem" />
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
