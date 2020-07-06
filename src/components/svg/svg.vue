@@ -1,5 +1,5 @@
 <template>
-  <svg class="svg-icon" :style="{width: size, height: size, color: color}" aria-hidden="true">
+  <svg v-on="$listeners" @click="svgEvent" class="svg-icon" :style="{width: size, height: size, color: color}" aria-hidden="true">
     <use :xlink:href="iconName"></use>
   </svg>
 </template>
@@ -25,20 +25,18 @@ export default {
       default: () => '2rem'
     }
   },
-  created() {
-    console.log(this.$attrs)
+  mounted() {
+    console.log(this.$listeners)
+  },
+  methods: {
+    svgEvent() {
+      this.$emit('svgEvent', this.icon)
+    }
   },
   computed: {
     iconName () {
       return `#icon-${this.icon}`
-    },
-    // svgClass () {
-    //   if (this.class) {
-    //     return 'svg-icon ' + this.class
-    //   } else {
-    //     return 'svg-icon'
-    //   }
-    // }
+    }
   }
 }
 </script>
